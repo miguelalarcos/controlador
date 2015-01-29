@@ -1,0 +1,12 @@
+<template name="cliente">
+  <div class="w500px border">
+    {{#autoForm id="saveSearchClienteForm" doc=this type="method" meteormethod='saveSearch' schema='cliente_schema'}}
+        Nombre: {{> afFieldInput type='xautocomplete' formid="saveSearchClienteForm" name='nombre' call='clientesXnombre' valuekey='nombre' renderkey='nombre'}}
+        <button id="saveClienteForm" class="ui button">Guardar</button>
+        <button id="searchClienteForm" class="ui button">Buscar</button>
+    {{/autoForm}}
+    {{#each clientes}}
+        <div>{{_id}}, {{nombre}}</div>
+    {{/each}}
+  </div>
+</template>

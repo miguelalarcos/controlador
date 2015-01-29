@@ -1,0 +1,10 @@
+Router.map ->
+  @route 'login',
+    path: '/login'
+    controller: RouteController
+  @route 'home',
+    path: '/'
+    controller: @HomeController
+  @route 'cliente',
+    path: '/cliente'
+    controller: @ClienteController
