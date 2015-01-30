@@ -1,6 +1,7 @@
 <template name="cliente">
+    <div class="first-column">
       <h1>Cliente <h3>{{this.codigo}}</h3></h1>
-      <div class="w500px border">
+      <div class="w600px border">
         {{#autoForm id="saveSearchClienteForm" doc=this type="method" meteormethod='saveSearch' schema='cliente_schema' resetOnSuccess=false}}
             {{> afQuickField type='xautocomplete' formid="saveSearchClienteForm" name='nombre' call='clientesXnombre' valuekey='nombre' renderkey='nombre'}}
             {{> afQuickField name='direccion'}}
@@ -9,13 +10,16 @@
             <button id="clearForm" class="ui button">Limpiar</button>
             <button id="saveClienteForm" class="ui button">Guardar</button>
             <button id="searchClienteForm" class="ui button">Buscar</button>
+            <button id="searchClienteXCodigo" class="ui button">Buscar por código</button>
+            <input type="text" id="codigo-cliente">
         {{/autoForm}}
       </div>
-      <div>
+    </div>
+      <div class="second-column">
           <h3>Clientes según el siguiente criterio</h3>
           <div>
               {{#with criterio_busqueda}}
-                  Nombre: <b>{{this.nombre}}</b>, Teléfono: <b>{{this.telefono}}</b>
+                  Nombre: <b>{{this.nombre}}</b> Provincia: <b>{{this.provincia}}</b> Teléfono: <b>{{this.telefono}}</b>
               {{/with}}
           </div>
           <div class="ui table">
@@ -29,7 +33,7 @@
                 </tr>
                 {{#each clientes}}
                     <tr>
-                        <td _id="{{_id}}" class=to-edit>{{codigo}}</td>
+                        <td _id="{{_id}}" class="codigo to-edit">{{codigo}}</td>
                         <td>{{nombre}}</td>
                         <td>{{telefono}}</td>
                         <td>{{provincia}}</td>

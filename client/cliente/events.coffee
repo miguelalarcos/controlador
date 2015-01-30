@@ -3,6 +3,10 @@ cliente = @cliente
 clienteId = @clienteId
 
 Template.cliente.events
+  'click #searchClienteXCodigo': (e,t)->
+    val = $(t.find('#codigo-cliente')).val()
+    clienteSearchDoc.set {codigo: parseInt(val)}
+    false
   'click .eliminar-cliente': (e,t)->
     _id = $(e.target).attr('_id')
     cliente.remove _id

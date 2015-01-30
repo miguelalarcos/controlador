@@ -5,8 +5,8 @@ Router.map ->
   @route 'login',
     path: '/login'
     controller: RouteController
-  @route 'home',
-    path: '/home'
+  @route 'control',
+    path: '/control'
     controller: HomeController
   @route 'cliente',
     path: '/cliente'

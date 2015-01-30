@@ -1,4 +1,45 @@
-<template name="home">
- sweet home! :)
+<template name="control">
+    <div class="first-column">
+        <h1>Control</h1><h3>{{this.codigo}}</h3>
+        <div class="w600px">
+            {{#autoForm id="saveSearchControlForm" doc=this type="method" meteormethod='saveSearch' schema='control_schema' resetOnSuccess=false}}
+                {{> afQuickField type='xautocomplete' formid="saveSearchControlForm" name='cliente' reference="cliente"  call='clientesXnombre' valuekey='nombre' renderkey='nombre'}}
+                {{> afFieldInput  type='xdatetime' formid="saveSearchControlForm" name='fecha' format='DD-MM-YYYY'}}
+                {{> afQuickField name='observaciones' rows=4}}
+                <button id="clearControlForm" class="ui button">Limpiar</button>
+                <button id="saveControlForm" class="ui button">Guardar</button>
+                <button id="searchControlForm" class="ui button">Buscar</button>
+                <button id="searchControlXCodigo" class="ui button">Buscar por código</button>
+                <input type="text" id="codigo-control">
+            {{/autoForm}}
+        </div>
+    </div>
+    <div class="second-column">
+        <h3>Controles según el siguiente criterio</h3>
+        <div>
+            {{#with criterio_busqueda_controles}}
+                Cliente: <b>{{this.cliente}}</b> Fecha: <b>{{formatDate this.fecha}}</b>
+            {{/with}}
+        </div>
+        <div class="ui table">
+            <table>
+                <tr>
+                    <th>Código</th>
+                    <th>Cliente</th>
+                    <th>Fecha</th>
+                    <th>Observaciones</th>
+                </tr>
+                {{#each controles}}
+                    <tr>
+                        <td _id="{{_id}}" class="codigo to-edit-control">{{codigo}}</td>
+                        <td>{{clienteName}}</td>
+                        <td>{{formatDate fecha}}</td>
+                        <td>{{observaciones}}</td>
+                        <td _id={{_id}} class=eliminar-control>eliminar</td>
+                    </tr>
+                {{/each}}
+            </table>
+        </div>
+    </div>
 </template>
 
