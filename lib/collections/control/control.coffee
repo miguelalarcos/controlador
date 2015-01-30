@@ -16,4 +16,9 @@ control.attachSchema(control_schema)
 cliente = @cliente
 
 control.helpers
-  clienteName: -> cliente.findOne(this.cliente).nombre
+  clienteName: ->
+     doc = cliente.findOne(this.cliente)
+     if doc
+       doc.nombre
+     else
+       null

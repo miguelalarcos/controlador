@@ -4,7 +4,7 @@
         <div class="w600px">
             {{#autoForm id="saveSearchControlForm" doc=this type="method" meteormethod='saveSearch' schema='control_schema' resetOnSuccess=false}}
                 {{> afQuickField type='xautocomplete' formid="saveSearchControlForm" name='cliente' reference="cliente"  call='clientesXnombre' valuekey='nombre' renderkey='nombre'}}
-                {{> afFieldInput  type='xdatetime' formid="saveSearchControlForm" name='fecha' format='DD-MM-YYYY'}}
+                {{> afQuickField  type='xdatetime' formid="saveSearchControlForm" name='fecha' format='DD-MM-YYYY'}}
                 {{> afQuickField name='observaciones' rows=4}}
                 <button id="clearControlForm" class="ui button">Limpiar</button>
                 <button id="saveControlForm" class="ui button">Guardar</button>
@@ -18,7 +18,7 @@
         <h3>Controles según el siguiente criterio</h3>
         <div>
             {{#with criterio_busqueda_controles}}
-                Cliente: <b>{{this.cliente}}</b> Fecha: <b>{{formatDate this.fecha}}</b>
+                Código: <b>{{this.codigo}}</b> Cliente: <b>{{this.clienteName}}</b> Fecha: <b>{{formatDate this.fecha}}</b>
             {{/with}}
         </div>
         <div class="ui table">

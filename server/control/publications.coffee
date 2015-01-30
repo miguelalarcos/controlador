@@ -6,11 +6,9 @@ Meteor.publishComposite 'Controles', (doc) ->
     #@ready()
     return {find: ->}
   else
-    if doc.cliente and doc.cliente.length > 2
-      doc.cliente ={$regex: '^.*'+doc.cliente+'.*$', $options: 'i'}
-    else
-      delete doc.nombre
     delete doc.observaciones
+    delete doc.clienteName
+    console.log doc
 
     find: -> control.find(doc)
     children: [
