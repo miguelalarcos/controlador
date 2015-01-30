@@ -6,8 +6,15 @@ LoginController = @LoginController
 class @ClienteController extends LoginController
   waitOn: -> Meteor.subscribe 'Clientes', clienteSearchDoc.get()
   data: ->
-    if clienteId.get() is null
+    _id = clienteId.get()
+    if _id is null
+      return {
+      _id: null
       nombre: ''
+      telefono: ''
+      direccion: ''
+      provincia: ''
+      }
     else
-      cliente.findOne(clienteId.get())
+      cliente.findOne(_id)
 
