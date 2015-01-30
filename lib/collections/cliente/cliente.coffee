@@ -1,5 +1,8 @@
 @cliente = cliente = new Meteor.Collection "Cliente"
 @cliente_schema = cliente_schema = new SimpleSchema
+  codigo:
+    type: Number
+    optional: true
   nombre:
     type: String
   direccion:

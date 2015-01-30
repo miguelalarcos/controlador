@@ -1,0 +1,16 @@
+<template name="controlLayout">
+    <div class="ui horizontal list">
+        <div class="item">
+            <div class="content">
+                <a href="{{pathFor 'home'}}">Home</a>
+            </div>
+        </div>
+        <div class="item">
+            <div class="content">
+                <a href="{{pathFor 'cliente'}}">Clientes</a>
+            </div>
+        </div>
+    </div>
+    {{> yield}}
+</template>
+

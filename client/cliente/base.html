@@ -1,5 +1,5 @@
 <template name="cliente">
-      <h1>Cliente <h3>{{this._id}}</h3></h1>
+      <h1>Cliente <h3>{{this.codigo}}</h3></h1>
       <div class="w500px border">
         {{#autoForm id="saveSearchClienteForm" doc=this type="method" meteormethod='saveSearch' schema='cliente_schema' resetOnSuccess=false}}
             {{> afQuickField type='xautocomplete' formid="saveSearchClienteForm" name='nombre' call='clientesXnombre' valuekey='nombre' renderkey='nombre'}}
@@ -21,7 +21,7 @@
           <div class="ui table">
               <table>
                 <tr>
-                    <th>Identificador</th>
+                    <th>Código</th>
                     <th>Nombre</th>
                     <th>Teléfono</th>
                     <th>Provincia</th>
@@ -29,7 +29,7 @@
                 </tr>
                 {{#each clientes}}
                     <tr>
-                        <td _id="{{_id}}" class=to-edit>{{_id}}</td>
+                        <td _id="{{_id}}" class=to-edit>{{codigo}}</td>
                         <td>{{nombre}}</td>
                         <td>{{telefono}}</td>
                         <td>{{provincia}}</td>

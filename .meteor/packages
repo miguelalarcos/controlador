@@ -24,3 +24,5 @@ jameslefrere:autoform-semantic-ui
 miguelalarcos:afwrap-xautocomplete
 miguelalarcos:afwrap-xdatetime
 ongoworks:security
+mrt:mongo-counter
+matb33:collection-hooks

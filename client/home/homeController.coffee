@@ -1,2 +1,3 @@
-class @HomeController extends LoginController
-  waitOn: ->
+BasicController = @BasicController
+
+class @HomeController extends BasicController
