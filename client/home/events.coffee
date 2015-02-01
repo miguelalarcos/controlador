@@ -1,15 +1,17 @@
 controlSearchDoc = @controlSearchDoc
 control = @control
 controlId = @controlId
+entreFechas = @entreFechas
 
 Template.control.events
   'click #searchControlXCodigo': (e,t)->
     val = $(t.find('#codigo-control')).val()
     controlSearchDoc.set {codigo: parseInt(val)}
     false
-  'click .eliminar-control': (e,t)->
+  'click .to-delete': (e,t)->
     _id = $(e.target).attr('_id')
     control.remove _id
+    controlId.set null
   'click #clearControlForm': (e,t)->
     controlId.set ''
     controlId.set null
@@ -34,3 +36,10 @@ Template.control.events
     false
   'click .to-edit-control': (e,t)->
     controlId.set $(e.target).attr('_id')
+  'click #busquedaXfechas': (e,t)->
+    fecha_ini = $(t.find('[formid=busquedaXfechas][name=fecha_ini]')).val()
+    fecha_fin = $(t.find('[formid=busquedaXfechas][name=fecha_fin]')).val()
+    console.log fecha_ini, fecha_fin
+    entreFechas.set
+      fecha_ini: fecha_ini
+      fecha_fin: fecha_fin

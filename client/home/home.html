@@ -3,8 +3,10 @@
         <h1>Control</h1><h3>{{this.codigo}}</h3>
         <div class="w600px">
             {{#autoForm id="saveSearchControlForm" doc=this type="method" meteormethod='saveSearch' schema='control_schema' resetOnSuccess=false}}
-                {{> afQuickField type='xautocomplete' formid="saveSearchControlForm" name='cliente' reference="cliente"  call='clientesXnombre' valuekey='nombre' renderkey='nombre'}}
+                {{> afQuickField type='xautocomplete' formid="saveSearchControlForm" name='cliente' reference="cliente"  call='clientesXnombre' valuekey='nombre' renderkey='nombre' strict='true'}}
                 {{> afQuickField  type='xdatetime' formid="saveSearchControlForm" name='fecha' format='DD-MM-YYYY'}}
+                {{> afQuickField name='bruto'}}
+                {{> afQuickField name='tara'}}
                 {{> afQuickField name='observaciones' rows=4}}
                 <button id="clearControlForm" class="ui button">Limpiar</button>
                 <button id="saveControlForm" class="ui button">Guardar</button>
@@ -12,6 +14,11 @@
                 <button id="searchControlXCodigo" class="ui button">Buscar por código</button>
                 <input type="text" id="codigo-control">
             {{/autoForm}}
+            {{#with fechaActual}}
+                {{> xdatetime formid='busquedaXfechas' name='fecha_ini' format='DD-MM-YYYY'}}
+                {{> xdatetime formid='busquedaXfechas' name='fecha_fin' format='DD-MM-YYYY'}}
+            {{/with}}
+            <button id="busquedaXfechas" class="ui button">Buscar entre fechas</button>
         </div>
     </div>
     <div class="second-column">
@@ -27,15 +34,21 @@
                     <th>Código</th>
                     <th>Cliente</th>
                     <th>Fecha</th>
+                    <th>Bruto</th>
+                    <th>Tara</th>
+                    <th>Neto</th>
                     <th>Observaciones</th>
                 </tr>
                 {{#each controles}}
                     <tr>
                         <td _id="{{_id}}" class="codigo to-edit-control">{{codigo}}</td>
-                        <td>{{clienteName}}</td>
+                        <td>{{Cliente.nombre}}</td>
                         <td>{{formatDate fecha}}</td>
+                        <td>{{bruto}}</td>
+                        <td>{{tara}}</td>
+                        <td>{{neto}}</td>
                         <td>{{observaciones}}</td>
-                        <td _id={{_id}} class=eliminar-control>eliminar</td>
+                        <td _id={{_id}} class=to-delete>eliminar</td>
                     </tr>
                 {{/each}}
             </table>

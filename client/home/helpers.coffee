@@ -9,6 +9,8 @@ Template.control.helpers
     item = cliente.findOne(doc.cliente)
     if item
       doc.clienteName = item.nombre
-    console.log doc
     doc
+  fechaActual: ->
+    fecha_ini: null#new Date()
+    fecha_fin: null#new Date()
 

@@ -1,5 +1,6 @@
 HomeController = @HomeController
 ClienteController = @ClienteController
+ReportController = @ReportController
 
 Router.map ->
   @route 'login',
@@ -11,3 +12,6 @@ Router.map ->
   @route 'cliente',
     path: '/cliente'
     controller: ClienteController
+  @route 'reports',
+    path: '/reports'
+    controller: ReportController

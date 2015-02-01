@@ -16,7 +16,6 @@ accounts-password
 reactive-dict
 reactive-var
 less
-miguelalarcos:sym-i18n
 frozeman:animation-helper
 momentjs:moment
 aldeed:autoform@4.2.2
@@ -26,3 +25,5 @@ miguelalarcos:afwrap-xdatetime
 ongoworks:security
 mrt:mongo-counter
 matb33:collection-hooks
+alanning:roles
+miguelalarcos:xdatetime
